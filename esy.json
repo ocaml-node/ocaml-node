@@ -1,0 +1,28 @@
+{
+  "name": "ocaml-node",
+  "version": "0.0.1",
+  "description": "",
+  "license": "MIT",
+  "esy": {
+    "build": [
+      "jbuilder build"
+    ],
+    "install": [
+      "esy-installer"
+    ],
+    "buildsInSource": "_build"
+  },
+  "peerDependencies": {
+    "ocaml": "^4.6.1"
+  },
+  "devDependencies": {
+    "@esy-ocaml/esy-installer": "^0.0.0",
+    "@opam/merlin": "^3.0.5",
+    "ocaml": "^4.6.1"
+  },
+  "dependencies": {
+    "@opam/jbuilder": "^1.0.0-beta20",
+    "dump-node-path": "^1.0.0",
+    "node-gyp": "^3.6.2"
+  }
+}
