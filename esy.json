@@ -8,7 +8,8 @@
       "jbuilder build"
     ],
     "install": [
-      "esy-installer"
+      "esy-installer ocaml-node",
+      "esy-installer node-headers"
     ],
     "buildsInSource": "_build"
   },
@@ -21,8 +22,6 @@
     "ocaml": "^4.6.1"
   },
   "dependencies": {
-    "@opam/jbuilder": "^1.0.0-beta20",
-    "dump-node-path": "^1.0.0",
-    "node-gyp": "^3.6.2"
+    "@opam/jbuilder": "^1.0.0-beta20"
   }
 }

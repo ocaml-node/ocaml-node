@@ -9,4 +9,5 @@ _release
 *.byte
 *.native
 esy.lock
-ocaml-node.install
+*.install
+package-lock.json

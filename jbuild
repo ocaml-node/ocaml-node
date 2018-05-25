@@ -3,14 +3,8 @@
 (library
   ((name node)
     (public_name ocaml-node)
+    (libraries (node-headers))
+    (c_names (addon))
     (library_flags (:standard -ccopt "-undefined dynamic_lookup"))
     (no_dynlink)
-    (self_build_stubs_archive (stubs))
 ))
-
-(rule
-((targets (libnode_stubs.a))
- (deps (addon.c binding.gyp))
- (action (bash "
- ar rc libnode_stubs.a ../../build/Release/obj.target/addon/addon.o
-"))))
