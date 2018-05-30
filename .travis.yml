@@ -9,3 +9,7 @@ install:
   - esy install
 script:
   - esy build
+
+cache:
+  directories:
+  - $HOME/.esy/
