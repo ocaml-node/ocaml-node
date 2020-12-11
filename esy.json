@@ -5,7 +5,7 @@
   "license": "MIT",
   "esy": {
     "build": [
-      "jbuilder build"
+      "dune build"
     ],
     "install": [
       "esy-installer ocaml-node",
@@ -22,6 +22,6 @@
     "ocaml": "^4.6.1"
   },
   "dependencies": {
-    "@opam/jbuilder": "^1.0.0-beta20"
+    "@opam/dune": "2.7.1"
   }
 }

@@ -1,4 +1,4 @@
-#include "node_api.h"
+#include "./node/node_api.h"
 #include <caml/callback.h>
 #include <caml/alloc.h>
 #include <stdio.h>
@@ -38,7 +38,7 @@ napi_env get_current_env() {
   if (fn == NULL) {
     fn = caml_named_value("ocaml_node_get_env");
   }
-  
+
   return Napi_env_val(caml_callback(*fn, Val_unit));
 }
 
@@ -102,7 +102,7 @@ value ocaml_node_create_string_utf8(value env, value val) {
                           String_val(val),
                           NAPI_AUTO_LENGTH,
                           &result);
-                          
+
 
   // TODO check status
 
@@ -253,7 +253,7 @@ value ocaml_node_get_value_bool(value env, value val) {
 
 value ocaml_node_create_int(value env, value val) {
   CAMLparam2(env, val);
-  
+
   napi_value result;
   napi_create_int32(Napi_env_val(env), Int_val(val), &result); // TODO or int64?
 

@@ -26,7 +26,7 @@ module LowLevel = struct
   type ref
 
   module Type = struct
-    type t = 
+    type t =
       | Undefined
       | Null
       | Boolean
@@ -48,7 +48,7 @@ module LowLevel = struct
     | Function -> "function"
     | External -> "external"
   end
-  
+
   type fn = env -> value array -> value
 
   external typeof: env -> value -> Type.t = "ocaml_node_value_typeof"
@@ -59,7 +59,7 @@ module LowLevel = struct
   external create_object: env -> value = "ocaml_node_create_object"
   external run_script: env -> value -> value = "ocaml_node_run_script"
   external throw: env -> value -> unit = "ocaml_node_throw"
-  external create_error: env -> value -> value = "ocaml_node_create_error"
+  (* external create_error: env -> value -> value = "ocaml_node_create_error" *)
   external create_type_error: env -> value -> value = "ocaml_node_create_type_error"
   external get_global: env -> value = "ocaml_node_get_global"
   external get_null: env -> value = "ocaml_node_get_null"
@@ -85,7 +85,7 @@ module LowLevel = struct
   external get_element: env -> value -> int -> value = "ocaml_node_get_element"
   external set_element: env -> value -> int -> value -> unit = "ocaml_node_set_element"
 
-  let init_cb: (value -> value) option Pervasives.ref = ref None
+  let init_cb = ref None
 
   let init: env -> value -> value = fun env value ->
     EnvStack.push_env env;
@@ -225,7 +225,6 @@ let wrap_exn exn =
 
 module Function = struct
   type t = Value.t
-  type fn = t
 
   let to_value v = v
   let of_value v =
@@ -244,7 +243,7 @@ module Function = struct
 
       let result = try fn args with
       | _ as exn -> (
-        let v = wrap_exn exn in 
+        let v = wrap_exn exn in
         LowLevel.throw env (Value.unwrap v);
         undefined ()
       ) in
@@ -277,13 +276,13 @@ module Object = struct
   let to_value v = v
   let of_value v =
     match LowLevel.typeof (EnvStack.get_env ()) (Value.unwrap v) with
-    | Object 
+    | Object
     | Function -> Some v
     | _ -> None
 
   let of_value_exn v = to_exn (of_value v)
 
-  let set k v obj = 
+  let set k v obj =
     let obj' = Value.unwrap obj in
     let env = EnvStack.get_env () in
     LowLevel.set_property env obj' (LowLevel.create_string_utf8 env k) (Value.unwrap v);

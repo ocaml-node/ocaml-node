@@ -1,0 +1,5 @@
+(library
+  (name node_headers)
+  (public_name node-headers)
+  (install_c_headers "node_api" "node_api_types")
+)
