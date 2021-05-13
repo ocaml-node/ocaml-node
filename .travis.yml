@@ -4,7 +4,7 @@ os:
   - osx
 
 node_js:
-  - "10"
+  - "14"
 
 install:
   - npm install -g esy@0.6.10
