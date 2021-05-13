@@ -8,10 +8,9 @@ node_js:
 
 install:
   - npm install -g esy@0.6.10
-  - esy install
 
 script:
-  - esy build
+  - esy
 
 cache:
   directories:
