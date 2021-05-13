@@ -2,7 +2,7 @@
   (name node)
   (public_name ocaml-node)
   (foreign_stubs (language c) (names addon))
-  (library_flags (:standard -ccopt "-undefined dynamic_lookup -Wdiscarded-qualifiers"))
+  (library_flags (:standard -ccopt "-Wdiscarded-qualifiers"))
   (no_dynlink)
   (flags (:standard -w -37-32))
 )
