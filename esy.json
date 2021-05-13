@@ -13,15 +13,11 @@
     ],
     "buildsInSource": "_build"
   },
-  "peerDependencies": {
-    "ocaml": "^4.6.1"
-  },
   "devDependencies": {
-    "@esy-ocaml/esy-installer": "^0.0.0",
-    "@opam/merlin": "^3.0.5",
-    "ocaml": "^4.6.1"
+    "ocaml": "~4.10.0",
+    "@opam/ocaml-lsp-server": "1.4.1"
   },
   "dependencies": {
-    "@opam/dune": "2.7.1"
+    "@opam/dune": "2.8.4"
   }
 }
