@@ -2,11 +2,14 @@ language: node_js
 os:
   - linux
   - osx
+
 node_js:
   - "10"
+
 install:
-  - npm install -g esy@0.1.12
+  - npm install -g esy@0.6.10
   - esy install
+
 script:
   - esy build
 
